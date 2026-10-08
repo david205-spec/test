@@ -1,0 +1,15 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug Test Desktop",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build",
+      "program": "${workspaceFolder}/src/TestDesktop/bin/Debug/net10.0/TestDesktop.dll",
+      "cwd": "${workspaceFolder}/src/TestDesktop",
+      "console": "internalConsole",
+      "stopAtEntry": false
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "name": "C# Desktop",
+  "image": "mcr.microsoft.com/devcontainers/base:debian",
+  "features": {
+    "ghcr.io/devcontainers/features/dotnet:2": {
+      "version": "10.0.401"
+    },
+    "ghcr.io/devcontainers/features/desktop-lite:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": ["ms-dotnettools.csdevkit"]
+    }
+  },
+  "forwardPorts": [6080],
+  "portsAttributes": {
+    "6080": {
+      "label": "Desktop",
+      "onAutoForward": "notify"
+    }
+  },
+  "postCreateCommand": "dotnet restore TestDesktop.slnx --locked-mode && dotnet build TestDesktop.slnx --no-restore && dotnet test TestDesktop.slnx --no-build --no-restore"
+}

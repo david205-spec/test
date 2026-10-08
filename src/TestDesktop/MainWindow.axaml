@@ -1,0 +1,15 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="TestDesktop.MainWindow"
+        Title="Test Desktop"
+        Width="520" Height="340"
+        MinWidth="360" MinHeight="300">
+  <StackPanel Margin="32" Spacing="16">
+    <TextBlock Text="Welcome to Test Desktop" FontSize="24" FontWeight="SemiBold" />
+    <TextBlock Text="Your C# desktop app is ready to build on." TextWrapping="Wrap" />
+    <TextBlock Text="Your name" />
+    <TextBox x:Name="NameInput" PlaceholderText="Enter your name" MaxLength="100" />
+    <Button x:Name="GreetButton" Content="Say hello" Click="Greet" />
+    <TextBlock x:Name="GreetingText" Text="Hello!" TextWrapping="Wrap" />
+  </StackPanel>
+</Window>
