@@ -1,15 +1,20 @@
 using Avalonia.Controls;
-using Avalonia.Interactivity;
 
 namespace TestDesktop;
 
 public partial class MainWindow : Window
 {
-    public MainWindow() => InitializeComponent();
-
-    private void Greet(object? sender, RoutedEventArgs e)
+    public MainWindow()
     {
-        var name = NameInput.Text?.Trim();
-        GreetingText.Text = string.IsNullOrEmpty(name) ? "Hello!" : $"Hello, {name}!";
+        InitializeComponent();
+        Opened += (_, _) => GameSurface.Focus();
+        Deactivated += (_, _) =>
+        {
+            if (GameSurface.Game.State == Game.GameState.Playing)
+            {
+                GameSurface.Game.TogglePause();
+                GameSurface.InvalidateVisual();
+            }
+        };
     }
 }

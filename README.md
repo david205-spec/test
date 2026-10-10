@@ -1,6 +1,15 @@
-# Test Desktop
+# Flappy Bird — C# Desktop Game
 
-A C# desktop starter app built with .NET 10 and Avalonia. It opens a window where you can enter your name and click **Say hello**. Avalonia supports Windows, macOS, and Linux.
+A playable Flappy Bird style game built with C#, .NET 10, and Avalonia. Fly through scrolling pipes, earn one point per pair, and try to beat your session best. The game uses original vector artwork and needs no external art files. Avalonia supports Windows, macOS, and Linux.
+
+## Play
+
+- **Space**, **Up**, **W**, or **left click**: start, flap, or retry after game over.
+- **P** or **Escape**: pause or resume. Click to resume when paused.
+- **R**: return to the start screen.
+- Hitting a pipe, the ground, or the ceiling ends the run.
+
+The game pauses when its window loses focus. Your best score lasts until you close the app.
 
 ## Open in VS Code
 
@@ -21,7 +30,7 @@ dotnet run --project src/TestDesktop --no-build
 dotnet test TestDesktop.slnx --no-build --no-restore
 ```
 
-The two UI tests create the real window using Avalonia's headless platform and exercise the greeting button. They do not require a display.
+The tests cover physics, collisions, scoring, pipe recycling, pause/restart behavior, and real window rendering and keyboard/mouse controls. They do not require a display.
 
 ## GitHub Codespaces
 
@@ -56,7 +65,9 @@ This checks native startup in the cloud; it does not expose a visible desktop in
 
 ## Project layout
 
-- `src/TestDesktop`: application, window layout, and button handler.
+- `src/TestDesktop/Game/FlappyGame.cs`: game rules and fixed-step physics.
+- `src/TestDesktop/Game/GameView.cs`: vector graphics, animation, and controls.
+- `src/TestDesktop`: desktop application and window.
 - `tests/TestDesktop.Tests`: headless UI tests.
 - `.vscode`: extension recommendation and build, run, test, and debug configurations.
 
